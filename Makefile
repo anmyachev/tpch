@@ -50,6 +50,10 @@ run-duckdb: venv  ## Run duckdb benchmarks
 run-pandas: venv  ## Run pandas benchmarks
 	$(VENV_BIN)/python -m queries.pandas.executor
 
+.PHONY: run-modin
+run-modin: venv  ## Run modin benchmarks
+	$(VENV_BIN)/python -m queries.modin.executor
+
 .PHONY: run-dask
 run-dask: venv  ## Run dask benchmarks
 	$(VENV_BIN)/python -m queries.dask.executor

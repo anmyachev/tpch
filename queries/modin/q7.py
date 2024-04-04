@@ -1,8 +1,10 @@
+from __future__ import annotations
+
 from datetime import date
 
 import modin.pandas as pd
 
-from queries.pandas import utils
+from queries.modin import utils
 
 Q_NUM = 7
 
@@ -126,10 +128,11 @@ def q() -> None:
             by=["supp_nation", "cust_nation", "l_year"],
             ascending=[True, True, True],
         )
-        return result_df  # type: ignore[no-any-return]
+        return result_df
 
     utils.run_query(Q_NUM, query)
 
 
 if __name__ == "__main__":
     q()
+
